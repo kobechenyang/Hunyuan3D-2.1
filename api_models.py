@@ -51,7 +51,7 @@ class GenerationRequest(BaseModel):
         le=20000
     )
     face_count: int = Field(
-        40000,
+        50000,
         description="Maximum number of faces for texture generation",
         ge=1000,
         le=100000

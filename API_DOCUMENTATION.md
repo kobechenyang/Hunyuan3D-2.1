@@ -80,7 +80,7 @@ Generate a 3D model from an input image.
 - `num_inference_steps` (optional): Generation steps (default: 5)
 - `guidance_scale` (optional): Generation guidance (default: 5.0)
 - `num_chunks` (optional): Processing chunks (default: 8000)
-- `face_count` (optional): Max faces for textures (default: 40000)
+- `face_count` (optional): Max faces for textures (default: 50000)
 - `type` (optional): Output format (default: "glb")
 
 #### POST `/send`

@@ -46,7 +46,7 @@ All parameters in the `/generate` endpoint are now fully documented:
 | `num_inference_steps` | integer | 5 | Generation steps | 1 to 20 |
 | `guidance_scale` | float | 5.0 | Generation guidance | 0.1 to 20.0 |
 | `num_chunks` | integer | 8000 | Processing chunks | 1000 to 20000 |
-| `face_count` | integer | 40000 | Max faces for textures | 1000 to 100000 |
+| `face_count` | integer | 50000 | Max faces for textures | 1000 to 100000 |
 | `type` | string | "glb" | Output format | "glb" or "obj" |
 
 ## 🧪 Test Results
