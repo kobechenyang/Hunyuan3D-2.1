@@ -92,15 +92,14 @@ class Hunyuan3DPaintPipeline:
     @torch.no_grad()
     def __call__(self, mesh_path=None, image_path=None, output_mesh_path=None, use_remesh=True, save_glb=True):
         """Generate texture for 3D mesh using multiview diffusion"""
-        # Ensure image_prompt is a list
-        if isinstance(image_path, str):
-            image_prompt = Image.open(image_path)
-        elif isinstance(image_path, Image.Image):
+        # Ensure image_prompt is a list of PIL Images
+        if isinstance(image_path, list):
             image_prompt = image_path
-        if not isinstance(image_prompt, List):
-            image_prompt = [image_prompt]
+        elif isinstance(image_path, str):
+            image_prompt = [Image.open(image_path)]
         else:
-            image_prompt = image_path
+            # Handles PIL Image or any other type - just wrap in list
+            image_prompt = [image_path]
 
         # Process mesh
         path = os.path.dirname(mesh_path)
