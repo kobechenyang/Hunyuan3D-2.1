@@ -90,7 +90,7 @@ class Hunyuan3DPaintPipeline:
         print("Models Loaded.")
 
     @torch.no_grad()
-    def __call__(self, mesh_path=None, image_path=None, output_mesh_path=None, use_remesh=True, save_glb=True):
+    def __call__(self, mesh_path=None, image_path=None, output_mesh_path=None, use_remesh=True, save_glb=True, re_uv=True):
         """Generate texture for 3D mesh using multiview diffusion"""
         # Ensure image_prompt is a list of PIL Images
         if isinstance(image_path, list):
@@ -115,7 +115,8 @@ class Hunyuan3DPaintPipeline:
 
         # Load mesh
         mesh = trimesh.load(processed_mesh_path)
-        mesh = mesh_uv_wrap(mesh)
+        if re_uv:
+            mesh = mesh_uv_wrap(mesh)
         self.render.load_mesh(mesh=mesh)
 
         ########### View Selection #########
