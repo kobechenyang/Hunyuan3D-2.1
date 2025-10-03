@@ -117,6 +117,9 @@ class Hunyuan3DPaintPipeline:
         mesh = trimesh.load(processed_mesh_path)
         if re_uv:
             mesh = mesh_uv_wrap(mesh)
+        elif isinstance(mesh, trimesh.Scene):
+            mesh = mesh.dump(concatenate=True)
+        
         self.render.load_mesh(mesh=mesh)
 
         ########### View Selection #########
